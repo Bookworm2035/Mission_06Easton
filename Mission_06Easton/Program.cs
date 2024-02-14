@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Mission_06Easton.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//may need to change BLAH and connection names :) 
+builder.Services.AddDbContext<JoelApplicationContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings: BlahConnection"]);
+});
 
 var app = builder.Build();
 
