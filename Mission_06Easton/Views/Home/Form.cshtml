@@ -1,12 +1,10 @@
-﻿@page
-@* @model Mission_06Easton.Views.Home.Index1Model *@
-@model Movie
+﻿@model Movie
 @{
+    ViewData["Title"] = "Form";
 }
 <p>Please fill out the form below to submit movie recommendations!</p>
 @* action="/Home/Form" *@
 <form  method="post" >
-    
     <label asp-for="Category">Category:</label>
     <input asp-for="Category" type="text" />
     <br>

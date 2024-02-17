@@ -11,7 +11,7 @@ using Mission_06Easton.Models;
 namespace Mission_06Easton.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20240217044257_First")]
+    [Migration("20240217052918_First")]
     partial class First
     {
         /// <inheritdoc />
@@ -41,6 +41,7 @@ namespace Mission_06Easton.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
+                        .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")

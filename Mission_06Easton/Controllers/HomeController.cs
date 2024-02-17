@@ -30,7 +30,7 @@ namespace Mission_06Easton.Controllers
         [HttpGet]
         public IActionResult Form()
         {
-            return View("Form");
+            return View();
         }
 
         [HttpPost]
