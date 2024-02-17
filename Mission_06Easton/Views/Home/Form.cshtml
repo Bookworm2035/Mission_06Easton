@@ -1,24 +1,34 @@
 ﻿@page
-@model Mission_06Easton.Views.Home.Index1Model
+@* @model Mission_06Easton.Views.Home.Index1Model *@
+@model Movie
 @{
 }
 <p>Please fill out the form below to submit movie recommendations!</p>
-
-<form id="movieForm">
-    <label for="title">Title:</label>
-    <input type="text" id="title" required />
+@* action="/Home/Form" *@
+<form  method="post" id="movieForm">
+    
+    <label asp-for="Category">Category:</label>
+    <input asp-for="Category" type="text" required/>
     <br>
     <br />
-    <label for="year">Year:</label>
-    <input type="number" id="year" required />
+    <label asp-for="Subcategory">Subcategory:</label>
+    <input asp-for="Subcategory" type="text" id="Subcategory" required />
     <br>
     <br />
-    <label for="director">Director:</label>
-    <input type="text" id="director" required />
+    <label asp-for="Title">Title:</label>
+    <input type="text" asp-for="Title" required />
     <br>
     <br />
-    <label for="rating">Rating:</label>
-    <select id="rating" required>
+    <label asp-for="Year">Year:</label>
+    <input type="number" asp-for="Year" required />
+    <br>
+    <br />
+    <label asp-for="Director">Director:</label>
+    <input type="text" asp-for="Director" required />
+    <br>
+    <br />
+    <label asp-for="Rating">Rating:</label>
+    <select asp-for="Rating" required>
         <option value="">Select Rating</option>
         <option value="G">G</option>
         <option value="PG">PG</option>
@@ -27,20 +37,20 @@
     </select>
     <br>
     <br />
-    <label for="edited">Edited:</label>
-    <select id="edited" required>
+    <label asp-for="Edited">Edited:</label>
+    <select asp-for="Edited" required>
         <option value="">Select</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
     <br>
     <br />
-    <label for="lentTo">Lent To:</label>
-    <input type="text" id="lentTo" />
+    <label asp-for="LentTo">Lent To:</label>
+    <input type="text" asp-for="LentTo" />
     <br>
     <br />
-    <label for="notes">Notes:</label>
-    <input type="text" id="notes" maxlength="25" />
+    <label asp-for="Notes">Notes:</label>
+    <input type="text" asp-for="Notes" maxlength="25" />
     <br>
     <br />
     <button type="submit">Submit</button>

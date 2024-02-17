@@ -1,16 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Mission_06Easton.Models;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace Mission_06Easton.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MovieContext _MovieContext;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        // Consolidate constructors into one
+        public HomeController(MovieContext MovieContext) //contructor temp
         {
-            _logger = logger;
+            _MovieContext = MovieContext;
+            //_logger = logger;
         }
 
         public IActionResult Index()
@@ -22,15 +26,20 @@ namespace Mission_06Easton.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public IActionResult Form()
         {
-            return View();
+            return View("Form");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Form(Movie response)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _MovieContext.Movies.Add(response);
+            _MovieContext.SaveChanges();
+            return View("Confirmation", response);
         }
+
     }
 }
