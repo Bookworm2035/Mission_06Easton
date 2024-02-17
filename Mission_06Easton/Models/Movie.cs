@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
 namespace Mission_06Easton.Models
 {
-    public class Movies
+    public class Movie
     {
         [Key]
         [Required]
