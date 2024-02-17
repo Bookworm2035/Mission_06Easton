@@ -5,30 +5,30 @@
 }
 <p>Please fill out the form below to submit movie recommendations!</p>
 @* action="/Home/Form" *@
-<form  method="post" id="movieForm">
+<form  method="post" >
     
     <label asp-for="Category">Category:</label>
-    <input asp-for="Category" type="text" required/>
+    <input asp-for="Category" type="text" />
     <br>
     <br />
     <label asp-for="Subcategory">Subcategory:</label>
-    <input asp-for="Subcategory" type="text" id="Subcategory" required />
+    <input asp-for="Subcategory" type="text" id="Subcategory"  />
     <br>
     <br />
     <label asp-for="Title">Title:</label>
-    <input type="text" asp-for="Title" required />
+    <input type="text" asp-for="Title"  />
     <br>
     <br />
     <label asp-for="Year">Year:</label>
-    <input type="number" asp-for="Year" required />
+    <input type="number" asp-for="Year"  />
     <br>
     <br />
     <label asp-for="Director">Director:</label>
-    <input type="text" asp-for="Director" required />
+    <input type="text" asp-for="Director"  />
     <br>
     <br />
     <label asp-for="Rating">Rating:</label>
-    <select asp-for="Rating" required>
+    <select asp-for="Rating" >
         <option value="">Select Rating</option>
         <option value="G">G</option>
         <option value="PG">PG</option>
@@ -38,7 +38,7 @@
     <br>
     <br />
     <label asp-for="Edited">Edited:</label>
-    <select asp-for="Edited" required>
+    <select asp-for="Edited" >
         <option value="">Select</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
