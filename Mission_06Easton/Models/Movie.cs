@@ -15,8 +15,8 @@ namespace Mission_06Easton.Models
         //add the rest
         [Required]
         public string Category { get; set; }
-        [Required]
-        public string Subcategory { get; set; }
+       
+        public string? Subcategory { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
