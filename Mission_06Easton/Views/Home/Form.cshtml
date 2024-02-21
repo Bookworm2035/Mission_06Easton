@@ -5,14 +5,21 @@
 <p>Please fill out the form below to submit movie recommendations!</p>
 @* action="/Home/Form" *@
 <form  method="post" >
-    <label asp-for="Category">Category:</label>
-    <input asp-for="Category" type="text" />
+    <label asp-for="CategoryName">Category:</label>
+    <input asp-for="CategoryName" />
+    <select>
+        <option value="">Select a Category</option>
+        @foreach (Category c in ViewBag)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
     <br>
     <br />
-    <label asp-for="Subcategory">Subcategory:</label>
+   @*  <label asp-for="Subcategory">Subcategory:</label>
     <input asp-for="Subcategory" type="text"  />
     <br>
-    <br />
+    <br /> *@
     <label asp-for="Title">Title:</label>
     <input type="text" asp-for="Title"  />
     <br>
@@ -46,6 +53,14 @@
     <label asp-for="LentTo">Lent To:</label>
     <input type="text" asp-for="LentTo" />
     <br>
+    <br />
+    <label asp-for="CopiedToPlex">CopiedToPlex:</label>
+    <select asp-for="CopiedToPlex">
+        <option value="">Select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
     <br />
     <label asp-for="Notes">Notes:</label>
     <input type="text" asp-for="Notes" maxlength="25" />

@@ -30,6 +30,10 @@ namespace Mission_06Easton.Controllers
         [HttpGet]
         public IActionResult Form()
         {
+            //hel
+            //ViewBag.Categories = _MovieContext.Categories
+               // .OrderBy(x => x.CategoryName)
+                //.ToList();
             return View();
         }
 
@@ -41,5 +45,33 @@ namespace Mission_06Easton.Controllers
             return View("Confirmation", response);
         }
 
+        //TABLE (IE database view) with crud functionality
+
+
+
+
+        //edit views
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            //other stuff here
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie updateresponse) {
+            _MovieContext.Update(updateresponse);
+            _MovieContext.SaveChanges();
+            return RedirectToAction("Table");
+        }
+
+
+
+
+
+        public IActionResult Delete()
+        {
+
+        }
     }
 }
