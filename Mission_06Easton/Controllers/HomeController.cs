@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Mission_06Easton.Models;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mission_06Easton.Controllers
 {
@@ -61,9 +62,9 @@ namespace Mission_06Easton.Controllers
 
         public IActionResult Table()
         {
-           var movies = _MovieContext.Movies
+           var movies = _MovieContext.Movies.Include(m => m.Category)
                     //.Where(x => x.COLUM == value)
-                    .OrderBy(x => x.Title).ToList();
+                        .OrderBy(x => x.MovieId).ToList();
             return View(movies);
         }
 
