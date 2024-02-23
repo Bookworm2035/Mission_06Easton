@@ -30,24 +30,42 @@ namespace Mission_06Easton.Controllers
         [HttpGet]
         public IActionResult Form()
         {
-            //hel
-            //ViewBag.Categories = _MovieContext.Categories
-               // .OrderBy(x => x.CategoryName)
-                //.ToList();
-            return View();
+           //var majors = _MovieContext.Categories.ToList();
+
+            ViewBag.Categories = _MovieContext.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+            return View("Form", new Movie());
         }
 
         [HttpPost]
         public IActionResult Form(Movie response)
         {
-            _MovieContext.Movies.Add(response);
-            _MovieContext.SaveChanges();
-            return View("Confirmation", response);
+            if (ModelState.IsValid) {
+                _MovieContext.Movies.Add(response);
+                _MovieContext.SaveChanges();
+                return View("Confirmation", response);
+
+            }
+            else
+            {
+                ViewBag.Categories = _MovieContext.Categories
+                    .OrderBy(x => x.CategoryName)
+                    .ToList();
+                return View(response);
+            }
+            
         }
 
         //TABLE (IE database view) with crud functionality
 
-
+        public IActionResult Table()
+        {
+           var movies = _MovieContext.Movies
+                    //.Where(x => x.COLUM == value)
+                    .OrderBy(x => x.Title).ToList();
+            return View(movies);
+        }
 
 
         //edit views
@@ -55,7 +73,13 @@ namespace Mission_06Easton.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            //other stuff here
+            var recordToEdit = _MovieContext.Movies
+                .Single(x => x.MovieId == id);
+
+            ViewBag.Categories = _MovieContext.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+            return View("Table", recordToEdit);
         }
 
         [HttpPost]
@@ -68,10 +92,22 @@ namespace Mission_06Easton.Controllers
 
 
 
-
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
+            var recordToDelete = _MovieContext.Movies
+                .Single(x => x.MovieId == id);
 
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Movie movie)
+        {
+            _MovieContext.Movies.Remove(movie);
+            _MovieContext.SaveChanges();
+
+            return RedirectToAction("Table");
         }
     }
 }
