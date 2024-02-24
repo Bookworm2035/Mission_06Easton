@@ -6,21 +6,24 @@
 
 @model List<Movie>
 
-<table class="table table-bordered">
+<table class="blah">
+   @*  table headers *@ 
     <thead class="fw-bold">
         <tr>
             <td>Title</td>
             <td>Year</td>
             <td>Director</td>
-            <td>Category Name</td>
+            <td>Category</td>
             <td>Rating</td>
             <td>Edited</td>
             <td>Lent To</td>
             <td>Copied To Plex</td>
             <td>Notes</td>
+            <td>Actions</td>
+            <td>:)</td>
         </tr>
     </thead>
-
+   @*  Go through and pull in the database *@
     @foreach (var x in Model)
     {
         <tbody>
@@ -28,17 +31,21 @@
                 <td>@x.Title</td>
                 <td>@x.Year</td>
                 <td>@x.Director</td>
-                @* <td>@x.CategoryId.CategoryName</td> *@
+                @* can be null *@
+                <td>@x.Category?.CategoryName</td>
                 <td>@x.Rating</td>
                 <td>@x.Edited</td>
                 <td>@x.LentTo</td>
                 <td>@x.CopiedToPlex</td>
                 <td>@x.Notes</td>
+             @*    buttons to edit and delete *@
+                <td><a class="btn btn-info" style="background-color:lightblue"  asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
+                <td><a class="btn btn-danger" style="background-color:darkred" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
             </tr>
 
-            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
-            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
-
+            
+            
+          
         </tbody>
     }
     

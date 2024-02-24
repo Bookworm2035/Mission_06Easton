@@ -13,35 +13,34 @@ namespace Mission_06Easton.Models
 
         //how do I set this up to be a foreign key?
         [ForeignKey("CategoryId")]
-        public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+        [Required(ErrorMessage ="Category is required")]
+        public int? CategoryId { get; set; }
+        public Cateogry? Category { get; set; }
 
-        //all the database stuff
-        //add the rest
-        //[Required]
-       
-        //public string CategoryName { get; set; }
-         
-        //public string? Subcategory { get; set; }
-        [Required]
+        //Required for required feilds, ? for nullable feilds
+      
+        [Required(ErrorMessage ="Title is required")]
         public string Title { get; set; }
         [Required]
         //ADD SOMETHING SO THIS CAN"T BE BEFORE THE 1880 year or whatever
         [Range(1888,2024, ErrorMessage = "Please enter a year between 1888 and 2024")]
         public int Year { get; set; }
-        [Required]
-        public string Director { get; set; }
+       //can be null
+        public string? Director { get; set; }
 
-        [Required]
-        public string Rating { get; set; }
+        //[Required]
+        public string? Rating { get; set; }
+        //special error mesage
 
-        [Required]
+        [Required(ErrorMessage ="Edited is required")]
         public bool Edited { get; set; }
 
         public string? LentTo { get; set; }
+        //error message
 
-        [Required]
+        [Required(ErrorMessage ="This is required")]
         public bool CopiedToPlex { get; set; }
+        //limit length
 
         [MaxLength(25)]
         public string? Notes { get; set; }

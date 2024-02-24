@@ -4,6 +4,7 @@
 }
 <p>Please fill out the form below to submit movie recommendations!</p>
 @* action="/Home/Form" *@
+<div class="form-container">
 <form  method="post" >
     <input type="hidden" asp-for="CategoryId"/>
     <input type="hidden" asp-for="MovieId" />
@@ -13,7 +14,7 @@
     <input asp-for="CategoryName" /> *@
     <select asp-for="CategoryId">
         <option value="">Select a Category</option>
-        @foreach (Category c in ViewBag)
+        @foreach (Cateogry c in ViewBag.Categories)
         {
             <option value="@c.CategoryId">@c.CategoryName</option>
         }
@@ -74,7 +75,7 @@
 
     <div asp-validation-summary="All"></div>
 </form>
-
+</div>
 @* //This is the form that will collect data about movie recomendations 
     
 

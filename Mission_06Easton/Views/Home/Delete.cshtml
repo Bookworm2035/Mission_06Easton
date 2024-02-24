@@ -7,6 +7,7 @@
 
 <h2>Confirm Deletion</h2>
 <h3>@Model.Title </h3>
+@* ask if they want to delete it or not, then do it *@
 <form asp-controller="Home" asp-action="Delete" method="post">
     <input type="hidden" asp-for="MovieId" />
 

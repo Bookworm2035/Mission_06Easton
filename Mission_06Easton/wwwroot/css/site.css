@@ -20,3 +20,160 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* Reset default browser styles */
+/*html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}*/
+
+/* Global styles */
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;*/ /* Light gray background */
+/*}*/
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+ Form styles 
+.form {
+    background-color: #ffffff;  White background for form 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  Shadow effect 
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: calc(100% - 22px);  Adjusted width to accommodate padding 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input[type="submit"] {
+    background-color: #007bff;  Blue submit button 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;  Darker blue on hover 
+    }
+
+ Table styles 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .table th, table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;  Light gray border 
+        word-wrap: break-word;  Allow long text to wrap 
+        max-width: 300px;  Limit the maximum width of cells 
+    }
+
+
+
+body {
+         background-color:white;
+            }
+
+header{
+    background-color:lightblue
+}
+
+
+
+.table th {
+    background-color: lightgray; /* Blue header background */
+    color: #fff;
+    text-align: left;
+    white-space: nowrap; /* Prevent header text from wrapping */
+    overflow: hidden;
+}
+
+.blah {
+    background-color:white;
+
+}
+
+btn-delete{
+    color:lightcoral
+}
+
+btn-edit{
+    color:lightgrey
+}
+
+/* Style the form container */
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+/* Style the form header */
+.form-header {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the form inputs */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+.form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    /* Style the submit button on hover */
+    .form-submit:hover {
+        background-color: #45a049;
+    }
+
+/* Style error messages */
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
